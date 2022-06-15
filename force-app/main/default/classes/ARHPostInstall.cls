@@ -5,7 +5,7 @@ global class ARHPostInstall implements InstallHandler {
 
       //Get Config Object Describe
       DescribeSObjectResult configObject = globalDescribe.get(
-          'ARH__Configuration__c'
+          'Configuration__c'
         )
         .getDescribe();
 
@@ -33,7 +33,7 @@ global class ARHPostInstall implements InstallHandler {
           configObjectFields
         )
       ) {
-        ARH__Configuration__c arhObj1 = new ARH__Configuration__c();
+        Configuration__c arhObj1 = new Configuration__c();
         arhObj1.Name = 'ARH User Config';
         arhObj1.ARH__Object__c = 'User';
         arhObj1.ARH__Relationship_Field__c = 'ManagerId';
@@ -47,7 +47,7 @@ global class ARHPostInstall implements InstallHandler {
         arhObj1.ARH__Search_Field__c = 'Name';
         insert arhObj1;
 
-        ARH__Configuration__c arhObj2 = new ARH__Configuration__c();
+        Configuration__c arhObj2 = new Configuration__c();
         arhObj2.Name = 'ARH Asset Config';
         arhObj2.ARH__Object__c = 'Asset';
         arhObj2.ARH__Relationship_Field__c = 'ParentId';
@@ -61,7 +61,7 @@ global class ARHPostInstall implements InstallHandler {
         arhObj2.ARH__Search_Field__c = 'Name';
         insert arhObj2;
 
-        ARH__Configuration__c arhObj3 = new ARH__Configuration__c();
+        Configuration__c arhObj3 = new Configuration__c();
         arhObj3.Name = 'ARH Case Config';
         arhObj3.ARH__Object__c = 'Case';
         arhObj3.ARH__Relationship_Field__c = 'ParentId';
@@ -75,7 +75,7 @@ global class ARHPostInstall implements InstallHandler {
         arhObj3.ARH__Search_Field__c = 'CaseNumber';
         insert arhObj3;
 
-        ARH__Configuration__c arhObj4 = new ARH__Configuration__c();
+        Configuration__c arhObj4 = new Configuration__c();
         arhObj4.Name = 'ARH Account Config';
         arhObj4.ARH__Object__c = 'Account';
         arhObj4.ARH__Relationship_Field__c = 'ParentId';

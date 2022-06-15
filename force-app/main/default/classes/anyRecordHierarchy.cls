@@ -132,9 +132,9 @@ public with sharing class anyRecordHierarchy {
   @AuraEnabled(cacheable=true)
   public static String getConfig(Id configId) {
     try {
-        ARH__Configuration__c configRec;
+        Configuration__c configRec;
         string fieldNames = 'Name,ARH__Detail_Field_1__c,ARH__Detail_Field_2__c,ARH__Detail_Field_3__c,ARH__Detail_Field_4__c,ARH__Detail_Field_5__c,ARH__Object__c,ARH__Relationship_Field__c,ARH__Visual_Field__c,ARH__Visual_Type__c,ARH__Search_Field__c';
-        if(isAccessibleFLS(fieldNames.split(','),'ARH__Configuration__c')){
+        if(isAccessibleFLS(fieldNames.split(','),'Configuration__c')){
             system.debug('in query for configuration');
            configRec = [
                 SELECT
@@ -150,7 +150,7 @@ public with sharing class anyRecordHierarchy {
                 ARH__Visual_Field__c,
                 ARH__Visual_Type__c,
                 ARH__Search_Field__c
-                FROM ARH__Configuration__c
+                FROM Configuration__c
                 WHERE Id = :configId
             ];
         }else{
