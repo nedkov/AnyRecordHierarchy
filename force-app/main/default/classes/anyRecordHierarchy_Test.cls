@@ -49,7 +49,7 @@ public class anyRecordHierarchy_Test {
 
   public static testMethod void configurationsPicklist_s2() {
     System.runAs(sysAdminUser()) {
-      sobject configRec = (SObject) Type.forName('Configuration__c')
+      sobject configRec = (SObject) Type.forName('ARH__Configuration__c')
         .newInstance();
       configRec.put('Name', 'Account and Parent Account');
       configRec.put('ARH__Object__c', 'Account');
@@ -93,7 +93,7 @@ public class anyRecordHierarchy_Test {
       insert accRec3;
 
       //Create Configuration Record
-      sobject configRec = (SObject) Type.forName('Configuration__c')
+      sobject configRec = (SObject) Type.forName('ARH__Configuration__c')
         .newInstance();
       configRec.put('Name', 'Account and Parent Account');
       configRec.put('ARH__Object__c', 'Account');
@@ -193,9 +193,9 @@ public class anyRecordHierarchy_Test {
       ARHPostInstall postinstall = new ARHPostInstall();
       Test.testInstall(postinstall, null);
       Test.testInstall(postinstall, new Version(1, 0), true);
-      List<Configuration__c> a = [
+      List<ARH__Configuration__c> a = [
         SELECT id, Name
-        FROM Configuration__c
+        FROM ARH__Configuration__c
       ];
       System.assertEquals(a.size(), 4);
     }
@@ -204,7 +204,7 @@ public class anyRecordHierarchy_Test {
   public static testMethod void AnyRecordControllerClass() {
     //Create Configuration Record
     System.runAs(sysAdminUser()) {
-      sobject configRec = (SObject) Type.forName('Configuration__c')
+      sobject configRec = (SObject) Type.forName('ARH__Configuration__c')
         .newInstance();
       configRec.put('Name', 'Account and Parent Account');
       configRec.put('ARH__Object__c', 'Account');
@@ -224,10 +224,10 @@ public class anyRecordHierarchy_Test {
       AnyRecordControllerClass.getAllConfigRecords();
 
       Boolean updateRecordResult = AnyRecordControllerClass.updateRecord(
-        (Configuration__c) configRec
+        (ARH__Configuration__c) configRec
       );
       Boolean deleteRecordResult = AnyRecordControllerClass.deleteRecord(
-        (Configuration__c) configRec
+        (ARH__Configuration__c) configRec
       );
 
       System.assertEquals(true, updateRecordResult);
