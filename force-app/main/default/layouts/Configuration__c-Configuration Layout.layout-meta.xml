@@ -13,43 +13,43 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>ARH__Object__c</field>
+                <field>Object__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>ARH__Relationship_Field__c</field>
+                <field>Relationship_Field__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>ARH__Detail_Field_1__c</field>
+                <field>Detail_Field_1__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>ARH__Detail_Field_2__c</field>
+                <field>Detail_Field_2__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>ARH__Detail_Field_3__c</field>
+                <field>Detail_Field_3__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>ARH__Detail_Field_4__c</field>
+                <field>Detail_Field_4__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>ARH__Detail_Field_5__c</field>
+                <field>Detail_Field_5__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>ARH__Visual_Type__c</field>
+                <field>Visual_Type__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>ARH__Visual_Field__c</field>
+                <field>Visual_Field__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>ARH__Search_Field__c</field>
+                <field>Search_Field__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>

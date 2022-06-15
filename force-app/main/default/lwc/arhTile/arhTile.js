@@ -38,7 +38,7 @@ export default class ArhTile extends LightningElement {
         }
         if (
           this.metadata[item].nameField === true &&
-          item !== "ARH__Visual_Field__c"
+          item !== "Visual_Field__c"
         ) {
           dataValues.value = this.record.Id;
           dataValues.referenceValue = this.record[this.metadata[item].name];
@@ -63,7 +63,7 @@ export default class ArhTile extends LightningElement {
 
     //visualize logic
     if (this.visualType == "Abbreviation") {
-      const textToAbbr = formattedData.ARH__Visual_Field__c.value;
+      const textToAbbr = formattedData.Visual_Field__c.value;
       if (textToAbbr) {
         let words = textToAbbr.split(" ");
         let abbr;
@@ -72,7 +72,7 @@ export default class ArhTile extends LightningElement {
         } else {
           abbr = words[0].slice(0, 2);
         }
-        formattedData.ARH__Visual_Field__c.value = abbr.toUpperCase();
+        formattedData.Visual_Field__c.value = abbr.toUpperCase();
       }
     }
 

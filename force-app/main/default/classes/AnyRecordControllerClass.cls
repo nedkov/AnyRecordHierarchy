@@ -91,12 +91,12 @@ public with sharing class AnyRecordControllerClass {
   @AuraEnabled
   public static List<SObject> getAllConfigRecords() {
     List<Configuration__c> lstConfigurable = new List<Configuration__c>();
-    string fields = 'ARH__Name,ARH__Object__c,ARH__Relationship_Field__c,ARH__Detail_Field_1__c,ARH__Detail_Field_2__c,ARH__Detail_Field_3__c,ARH__Detail_Field_4__c,ARH__Detail_Field_5__c,ARH__Visual_Type__c,ARH__Visual_Field__c,ARH__Search_Field__c';
+    string fields = 'Name,Object__c,Relationship_Field__c,Detail_Field_1__c,Detail_Field_2__c,Detail_Field_3__c,Detail_Field_4__c,Detail_Field_5__c,Visual_Type__c,Visual_Field__c,Search_Field__c';
     List<string> lstFieldNames = new List<string>();
     lstFieldNames.addAll(fields.split(','));
     SYSTEM.DEBUG('ENETRED');
     if (
-      anyRecordHierarchy.isAccessibleFLS(lstFieldNames, 'ARH__Configuration__c')
+      anyRecordHierarchy.isAccessibleFLS(lstFieldNames, 'Configuration__c')
     ) {
       SYSTEM.DEBUG('STARTED');
       lstConfigurable = [
@@ -127,10 +127,10 @@ public with sharing class AnyRecordControllerClass {
     //System.debug(recordForUpdate);
     boolean isSuccess = false;
     List<string> lstFieldNames = new List<string>();
-    string fields = 'ARH__Name,ARH__Object__c,ARH__Relationship_Field__c,ARH__Detail_Field_1__c,ARH__Detail_Field_2__c,ARH__Detail_Field_3__c,ARH__Detail_Field_4__c,ARH__Detail_Field_5__c,ARH__Visual_Type__c,ARH__Visual_Field__c,ARH__Search_Field__c';
+    string fields = 'Name,Object__c,Relationship_Field__c,Detail_Field_1__c,Detail_Field_2__c,Detail_Field_3__c,Detail_Field_4__c,Detail_Field_5__c,Visual_Type__c,Visual_Field__c,Search_Field__c';
     lstFieldNames.addAll(fields.split(','));
     if (
-      anyRecordHierarchy.isUpdateable(lstFieldNames, 'ARH__Configuration__c')
+      anyRecordHierarchy.isUpdateable(lstFieldNames, 'Configuration__c')
     ) {
       List<Configuration__c> cnLst = new List<Configuration__c>{
         recordForUpdate
@@ -155,7 +155,7 @@ public with sharing class AnyRecordControllerClass {
 
     Map<String, Schema.SObjectType> globalDescribe = Schema.getGlobalDescribe();
     DescribeSObjectResult configObject = globalDescribe.get(
-        'ARH__Configuration__c'
+        'Configuration__c'
       )
       .getDescribe();
     boolean isSuccess = false;

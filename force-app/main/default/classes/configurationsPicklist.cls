@@ -1,12 +1,12 @@
 global with sharing class configurationsPicklist extends VisualEditor.DynamicPickList {
-  public List<ARH__Configuration__c> allConfigs;
+  public List<Configuration__c> allConfigs;
   VisualEditor.DesignTimePageContext context;
   String naMessage = 'None Available';
 
   global configurationsPicklist(VisualEditor.DesignTimePageContext context) {
-    string queryStr = 'Select Id, Name from ARH__Configuration__c';
+    string queryStr = 'Select Id, Name from Configuration__c';
     if (context.pageType == 'RecordPage') {
-      queryStr += ' where ARH__Object__c = \'' + context.entityName + '\'';
+      queryStr += ' where Object__c = \'' + context.entityName + '\'';
       naMessage += ' for the Object';
     }
     this.allConfigs = Database.query(queryStr);
@@ -29,7 +29,7 @@ global with sharing class configurationsPicklist extends VisualEditor.DynamicPic
   global override VisualEditor.DynamicPickListRows getValues() {
     VisualEditor.DynamicPickListRows myValues = new VisualEditor.DynamicPickListRows();
     if (allConfigs.size() > 0) {
-      for (ARH__Configuration__c config : allConfigs) {
+      for (Configuration__c config : allConfigs) {
         myValues.addRow(
           new VisualEditor.DataRow(
             string.valueOf(config.Name),

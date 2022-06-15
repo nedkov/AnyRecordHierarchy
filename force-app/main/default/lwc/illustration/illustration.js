@@ -16,7 +16,7 @@ export default class Illustration extends NavigationMixin(LightningElement) {
     this[NavigationMixin.Navigate]({
       type: "standard__navItemPage",
       attributes: {
-        apiName: "ARH__ARH_Configuration"
+        apiName: "ARH_Configuration"
       }
     });
   }

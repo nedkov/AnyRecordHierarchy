@@ -317,16 +317,16 @@ export default class AnyRecHAdmin extends LightningElement {
     const arr3 = this.myList.filter(d => d.Id === `${recI}`);
     this.currentRecord = arr3[0];
     this.conName = arr3[0].Name;
-    this.myObjectName = arr3[0].ARH__Object__c;
-    this.myLookupFld = arr3[0].ARH__Relationship_Field__c;
-    this.value1 = arr3[0].ARH__Detail_Field_1__c;
-    this.value2 = arr3[0].ARH__Detail_Field_2__c;
-    this.value3 = arr3[0].ARH__Detail_Field_3__c;
-    this.value4 = arr3[0].ARH__Detail_Field_4__c;
-    this.value5 = arr3[0].ARH__Detail_Field_5__c;
-    this.value6 = arr3[0].ARH__Visual_Field__c;
-    this.value7 = arr3[0].ARH__Search_Field__c;
-    this.visType = arr3[0].ARH__Visual_Type__c;
+    this.myObjectName = arr3[0].Object__c;
+    this.myLookupFld = arr3[0].Relationship_Field__c;
+    this.value1 = arr3[0].Detail_Field_1__c;
+    this.value2 = arr3[0].Detail_Field_2__c;
+    this.value3 = arr3[0].Detail_Field_3__c;
+    this.value4 = arr3[0].Detail_Field_4__c;
+    this.value5 = arr3[0].Detail_Field_5__c;
+    this.value6 = arr3[0].Visual_Field__c;
+    this.value7 = arr3[0].Search_Field__c;
+    this.visType = arr3[0].Visual_Type__c;
     this.configName = "for " + this.conName;
 
     this.visualType = this.visType;
@@ -359,7 +359,7 @@ export default class AnyRecHAdmin extends LightningElement {
       })
       .then(() => {
         getRFields({
-          objName: arr3[0].ARH__Object__c
+          objName: arr3[0].Object__c
         }).then(response => {
           for (var key in response) {
             this.itemsRF = [
@@ -374,7 +374,7 @@ export default class AnyRecHAdmin extends LightningElement {
       })
       .then(() => {
         getNRFields({
-            objName: arr3[0].ARH__Object__c
+            objName: arr3[0].Object__c
           })
           .then(response => {
             for (var key in response.AllFields) {
@@ -431,17 +431,17 @@ export default class AnyRecHAdmin extends LightningElement {
 
   handleSave() {
     let cont = this.currentRecord;
-    cont.ARH__Object__c = this.myObjectName;
+    cont.Object__c = this.myObjectName;
     cont.Name = this.conName;
-    cont.ARH__Relationship_Field__c = this.myLookupFld;
-    cont.ARH__Detail_Field_1__c = this.value1;
-    cont.ARH__Detail_Field_2__c = this.value2;
-    cont.ARH__Detail_Field_3__c = this.value3;
-    cont.ARH__Detail_Field_4__c = this.value4;
-    cont.ARH__Detail_Field_5__c = this.value5;
-    cont.ARH__Visual_Field__c = this.value6;
-    cont.ARH__Search_Field__c = this.value7;
-    cont.ARH__Visual_Type__c = this.visType;
+    cont.Relationship_Field__c = this.myLookupFld;
+    cont.Detail_Field_1__c = this.value1;
+    cont.Detail_Field_2__c = this.value2;
+    cont.Detail_Field_3__c = this.value3;
+    cont.Detail_Field_4__c = this.value4;
+    cont.Detail_Field_5__c = this.value5;
+    cont.Visual_Field__c = this.value6;
+    cont.Search_Field__c = this.value7;
+    cont.Visual_Type__c = this.visType;
 
     updateSObject({
         recordForUpdate: cont

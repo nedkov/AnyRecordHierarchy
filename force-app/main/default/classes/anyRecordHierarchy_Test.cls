@@ -49,18 +49,18 @@ public class anyRecordHierarchy_Test {
 
   public static testMethod void configurationsPicklist_s2() {
     System.runAs(sysAdminUser()) {
-      sobject configRec = (SObject) Type.forName('ARH__Configuration__c')
+      sobject configRec = (SObject) Type.forName('Configuration__c')
         .newInstance();
       configRec.put('Name', 'Account and Parent Account');
-      configRec.put('ARH__Object__c', 'Account');
-      configRec.put('ARH__Detail_Field_1__c', 'Name');
-      configRec.put('ARH__Detail_Field_2__c', 'AccountNumber');
-      configRec.put('ARH__Detail_Field_3__c', 'AnnualRevenue');
-      configRec.put('ARH__Detail_Field_4__c', 'Website');
-      configRec.put('ARH__Detail_Field_5__c', 'CreatedById');
-      configRec.put('ARH__Relationship_Field__c', 'ParentId');
-      configRec.put('ARH__Visual_Field__c', 'Name');
-      configRec.put('ARH__Visual_Type__c', 'Abbreviation');
+      configRec.put('Object__c', 'Account');
+      configRec.put('Detail_Field_1__c', 'Name');
+      configRec.put('Detail_Field_2__c', 'AccountNumber');
+      configRec.put('Detail_Field_3__c', 'AnnualRevenue');
+      configRec.put('Detail_Field_4__c', 'Website');
+      configRec.put('Detail_Field_5__c', 'CreatedById');
+      configRec.put('Relationship_Field__c', 'ParentId');
+      configRec.put('Visual_Field__c', 'Name');
+      configRec.put('Visual_Type__c', 'Abbreviation');
       insert configRec;
 
       VisualEditor.DesignTimePageContext vdc = new VisualEditor.DesignTimePageContext();
@@ -93,19 +93,19 @@ public class anyRecordHierarchy_Test {
       insert accRec3;
 
       //Create Configuration Record
-      sobject configRec = (SObject) Type.forName('ARH__Configuration__c')
+      sobject configRec = (SObject) Type.forName('Configuration__c')
         .newInstance();
       configRec.put('Name', 'Account and Parent Account');
-      configRec.put('ARH__Object__c', 'Account');
-      configRec.put('ARH__Detail_Field_1__c', 'Name');
-      configRec.put('ARH__Detail_Field_2__c', 'AccountNumber');
-      configRec.put('ARH__Detail_Field_3__c', 'AnnualRevenue');
-      configRec.put('ARH__Detail_Field_4__c', 'Website');
-      configRec.put('ARH__Detail_Field_5__c', 'CreatedById');
-      configRec.put('ARH__Relationship_Field__c', 'ParentId');
-      configRec.put('ARH__Visual_Field__c', 'Name');
-      configRec.put('ARH__Visual_Type__c', 'Abbreviation');
-      configRec.put('ARH__Search_Field__c', 'Name');
+      configRec.put('Object__c', 'Account');
+      configRec.put('Detail_Field_1__c', 'Name');
+      configRec.put('Detail_Field_2__c', 'AccountNumber');
+      configRec.put('Detail_Field_3__c', 'AnnualRevenue');
+      configRec.put('Detail_Field_4__c', 'Website');
+      configRec.put('Detail_Field_5__c', 'CreatedById');
+      configRec.put('Relationship_Field__c', 'ParentId');
+      configRec.put('Visual_Field__c', 'Name');
+      configRec.put('Visual_Type__c', 'Abbreviation');
+      configRec.put('Search_Field__c', 'Name');
       insert configRec;
 
       //Get Config Metadata, QueryString, RelationField, visualType
@@ -136,7 +136,7 @@ public class anyRecordHierarchy_Test {
       //Positive Test searchRecords()
       anyRecordHierarchy.searchRecords(
         'Acc',
-        (String) configRec.get('ARH__Object__c'),
+        (String) configRec.get('Object__c'),
         (String) configDataMap.get('searchField'),
         null,
         null,
@@ -144,7 +144,7 @@ public class anyRecordHierarchy_Test {
       );
       anyRecordHierarchy.searchRecords(
         '123',
-        (String) configRec.get('ARH__Object__c'),
+        (String) configRec.get('Object__c'),
         (String) configDataMap.get('searchField'),
         null,
         null,
@@ -193,9 +193,9 @@ public class anyRecordHierarchy_Test {
       ARHPostInstall postinstall = new ARHPostInstall();
       Test.testInstall(postinstall, null);
       Test.testInstall(postinstall, new Version(1, 0), true);
-      List<ARH__Configuration__c> a = [
+      List<Configuration__c> a = [
         SELECT id, Name
-        FROM ARH__Configuration__c
+        FROM Configuration__c
       ];
       System.assertEquals(a.size(), 4);
     }
@@ -204,18 +204,18 @@ public class anyRecordHierarchy_Test {
   public static testMethod void AnyRecordControllerClass() {
     //Create Configuration Record
     System.runAs(sysAdminUser()) {
-      sobject configRec = (SObject) Type.forName('ARH__Configuration__c')
+      sobject configRec = (SObject) Type.forName('Configuration__c')
         .newInstance();
       configRec.put('Name', 'Account and Parent Account');
-      configRec.put('ARH__Object__c', 'Account');
-      configRec.put('ARH__Detail_Field_1__c', 'Name');
-      configRec.put('ARH__Detail_Field_2__c', 'AccountNumber');
-      configRec.put('ARH__Detail_Field_3__c', 'AnnualRevenue');
-      configRec.put('ARH__Detail_Field_4__c', 'Website');
-      configRec.put('ARH__Detail_Field_5__c', 'CreatedById');
-      configRec.put('ARH__Relationship_Field__c', 'ParentId');
-      configRec.put('ARH__Visual_Field__c', 'Name');
-      configRec.put('ARH__Visual_Type__c', 'Abbreviation');
+      configRec.put('Object__c', 'Account');
+      configRec.put('Detail_Field_1__c', 'Name');
+      configRec.put('Detail_Field_2__c', 'AccountNumber');
+      configRec.put('Detail_Field_3__c', 'AnnualRevenue');
+      configRec.put('Detail_Field_4__c', 'Website');
+      configRec.put('Detail_Field_5__c', 'CreatedById');
+      configRec.put('Relationship_Field__c', 'ParentId');
+      configRec.put('Visual_Field__c', 'Name');
+      configRec.put('Visual_Type__c', 'Abbreviation');
       insert configRec;
 
       AnyRecordControllerClass.getObjects();
@@ -224,10 +224,10 @@ public class anyRecordHierarchy_Test {
       AnyRecordControllerClass.getAllConfigRecords();
 
       Boolean updateRecordResult = AnyRecordControllerClass.updateRecord(
-        (ARH__Configuration__c) configRec
+        (Configuration__c) configRec
       );
       Boolean deleteRecordResult = AnyRecordControllerClass.deleteRecord(
-        (ARH__Configuration__c) configRec
+        (Configuration__c) configRec
       );
 
       System.assertEquals(true, updateRecordResult);

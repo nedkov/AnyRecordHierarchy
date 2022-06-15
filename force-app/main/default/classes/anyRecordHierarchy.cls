@@ -132,25 +132,25 @@ public with sharing class anyRecordHierarchy {
   @AuraEnabled(cacheable=true)
   public static String getConfig(Id configId) {
     try {
-        ARH__Configuration__c configRec;
-        string fieldNames = 'Name,ARH__Detail_Field_1__c,ARH__Detail_Field_2__c,ARH__Detail_Field_3__c,ARH__Detail_Field_4__c,ARH__Detail_Field_5__c,ARH__Object__c,ARH__Relationship_Field__c,ARH__Visual_Field__c,ARH__Visual_Type__c,ARH__Search_Field__c';
-        if(isAccessibleFLS(fieldNames.split(','),'ARH__Configuration__c')){
+        Configuration__c configRec;
+        string fieldNames = 'Name,Detail_Field_1__c,Detail_Field_2__c,Detail_Field_3__c,Detail_Field_4__c,Detail_Field_5__c,Object__c,Relationship_Field__c,Visual_Field__c,Visual_Type__c,Search_Field__c';
+        if(isAccessibleFLS(fieldNames.split(','),'Configuration__c')){
             system.debug('in query for configuration');
            configRec = [
                 SELECT
                 Id,
                 Name,
-                ARH__Detail_Field_1__c,
-                ARH__Detail_Field_2__c,
-                ARH__Detail_Field_3__c,
-                ARH__Detail_Field_4__c,
-                ARH__Detail_Field_5__c,
-                ARH__Object__c,
-                ARH__Relationship_Field__c,
-                ARH__Visual_Field__c,
-                ARH__Visual_Type__c,
-                ARH__Search_Field__c
-                FROM ARH__Configuration__c
+                Detail_Field_1__c,
+                Detail_Field_2__c,
+                Detail_Field_3__c,
+                Detail_Field_4__c,
+                Detail_Field_5__c,
+                Object__c,
+                Relationship_Field__c,
+                Visual_Field__c,
+                Visual_Type__c,
+                Search_Field__c
+                FROM Configuration__c
                 WHERE Id = :configId
             ];
         }else{
@@ -165,28 +165,28 @@ public with sharing class anyRecordHierarchy {
       //Fields To Describe
       Map<String, String> fieldsToDescribe = new Map<String, String>();
       fieldsToDescribe.put(
-        'ARH__Detail_Field_1__c',
-        configRec.ARH__Detail_Field_1__c
+        'Detail_Field_1__c',
+        configRec.Detail_Field_1__c
       );
       fieldsToDescribe.put(
-        'ARH__Detail_Field_2__c',
-        configRec.ARH__Detail_Field_2__c
+        'Detail_Field_2__c',
+        configRec.Detail_Field_2__c
       );
       fieldsToDescribe.put(
-        'ARH__Detail_Field_3__c',
-        configRec.ARH__Detail_Field_3__c
+        'Detail_Field_3__c',
+        configRec.Detail_Field_3__c
       );
       fieldsToDescribe.put(
-        'ARH__Detail_Field_4__c',
-        configRec.ARH__Detail_Field_4__c
+        'Detail_Field_4__c',
+        configRec.Detail_Field_4__c
       );
       fieldsToDescribe.put(
-        'ARH__Detail_Field_5__c',
-        configRec.ARH__Detail_Field_5__c
+        'Detail_Field_5__c',
+        configRec.Detail_Field_5__c
       );
       fieldsToDescribe.put(
-        'ARH__Visual_Field__c',
-        configRec.ARH__Visual_Field__c
+        'Visual_Field__c',
+        configRec.Visual_Field__c
       );
 
       //Error Message
@@ -200,7 +200,7 @@ public with sharing class anyRecordHierarchy {
 
       //Get Config Object Describe
       DescribeSObjectResult configObject = globalDescribe.get(
-          configRec.ARH__Object__c
+          configRec.Object__c
         )
         .getDescribe();
 
@@ -209,8 +209,8 @@ public with sharing class anyRecordHierarchy {
 
       //Check for Object and Field Access
       List<String> fieldNamesToCheckAccess = fieldsToDescribe.values();
-      fieldNamesToCheckAccess.add(configRec.ARH__Search_Field__c);
-      fieldNamesToCheckAccess.add(configRec.ARH__Relationship_Field__c);
+      fieldNamesToCheckAccess.add(configRec.Search_Field__c);
+      fieldNamesToCheckAccess.add(configRec.Relationship_Field__c);
 
       if (
         !isAccessible(fieldNamesToCheckAccess, configObject, configObjectFields)
@@ -223,10 +223,10 @@ public with sharing class anyRecordHierarchy {
       }
 
       Schema.DescribeFieldResult relationField = configObjectFields.get(
-          configRec.ARH__Relationship_Field__c
+          configRec.Relationship_Field__c
         )
         .getDescribe();
-      fieldsToQuery.add(configRec.ARH__Relationship_Field__c);
+      fieldsToQuery.add(configRec.Relationship_Field__c);
 
       //Prep Configuration Metadata
       Map<String, Schema.DescribeFieldResult> objectFields = new Map<String, Schema.DescribeFieldResult>();
@@ -276,7 +276,7 @@ public with sharing class anyRecordHierarchy {
       queryString +=
         String.join((Iterable<String>) fieldsToQuery, ', ').removeEnd(', ') +
         ' from ' +
-        configRec.ARH__Object__c;
+        configRec.Object__c;
 
       //system.debug('queryString ' + queryString);
 
@@ -284,9 +284,9 @@ public with sharing class anyRecordHierarchy {
       cData.put('metadata', JSON.serialize(objectFields));
       cData.put('refObjNameFields', JSON.serialize(refObjNameFields));
       cData.put('queryString', queryString);
-      cData.put('visualType', configRec.ARH__Visual_Type__c);
-      cData.put('relationField', configRec.ARH__Relationship_Field__c);
-      cData.put('searchField', configRec.ARH__Search_Field__c);
+      cData.put('visualType', configRec.Visual_Type__c);
+      cData.put('relationField', configRec.Relationship_Field__c);
+      cData.put('searchField', configRec.Search_Field__c);
 
       return JSON.serialize(cData);
     } catch (exception e) {

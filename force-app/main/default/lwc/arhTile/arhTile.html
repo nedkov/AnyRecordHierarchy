@@ -5,21 +5,21 @@
         <div class="outer-avatar">
           <c-avatar
             if:true={visual.Abbreviation}
-            initials={fieldData.ARH__Visual_Field__c.value}
+            initials={fieldData.Visual_Field__c.value}
             device-size={deviceSize}
           ></c-avatar>
           <c-avatar
             if:true={visual.Image}
-            src={fieldData.ARH__Visual_Field__c.value}
+            src={fieldData.Visual_Field__c.value}
             device-size={deviceSize}
           ></c-avatar>
         </div>
         <div class="inlineItem marginLeft">
           <span class="name">
-            <template if:true={metadata.ARH__Detail_Field_1__c}>
+            <template if:true={metadata.Detail_Field_1__c}>
               <c-field
-                field-metadata={metadata.ARH__Detail_Field_1__c}
-                field-data={fieldData.ARH__Detail_Field_1__c}
+                field-metadata={metadata.Detail_Field_1__c}
+                field-data={fieldData.Detail_Field_1__c}
                 device-size={deviceSize}
               ></c-field>
             </template>
@@ -45,11 +45,11 @@
                           <p
                             class="slds-text-heading_small slds-hyphenate slds-truncate"
                           >
-                            <template if:true={metadata.ARH__Detail_Field_1__c}>
+                            <template if:true={metadata.Detail_Field_1__c}>
                               <div class="slds-truncate">
                                 <c-field
-                                  field-metadata={metadata.ARH__Detail_Field_1__c}
-                                  field-data={fieldData.ARH__Detail_Field_1__c}
+                                  field-metadata={metadata.Detail_Field_1__c}
+                                  field-data={fieldData.Detail_Field_1__c}
                                   device-size={deviceSize}
                                 ></c-field>
                               </div>
@@ -61,32 +61,32 @@
                     <dd class="slds-m-top_x-small">
                       <div class="inlineItem marginLeft">
                         <span class="title"
-                          ><template if:true={metadata.ARH__Detail_Field_2__c}>
+                          ><template if:true={metadata.Detail_Field_2__c}>
                             <div>
                               <c-field
-                                field-metadata={metadata.ARH__Detail_Field_2__c}
-                                field-data={fieldData.ARH__Detail_Field_2__c}
+                                field-metadata={metadata.Detail_Field_2__c}
+                                field-data={fieldData.Detail_Field_2__c}
                                 device-size={deviceSize}
                                 variant="show-label"
                               ></c-field>
                             </div>
                           </template>
 
-                          <template if:true={metadata.ARH__Detail_Field_3__c}>
+                          <template if:true={metadata.Detail_Field_3__c}>
                             <div>
                               <c-field
-                                field-metadata={metadata.ARH__Detail_Field_3__c}
-                                field-data={fieldData.ARH__Detail_Field_3__c}
+                                field-metadata={metadata.Detail_Field_3__c}
+                                field-data={fieldData.Detail_Field_3__c}
                                 device-size={deviceSize}
                                 variant="show-label"
                               ></c-field>
                             </div>
                           </template>
-                          <template if:true={metadata.ARH__Detail_Field_4__c}>
+                          <template if:true={metadata.Detail_Field_4__c}>
                             <div>
                               <c-field
-                                field-metadata={metadata.ARH__Detail_Field_4__c}
-                                field-data={fieldData.ARH__Detail_Field_4__c}
+                                field-metadata={metadata.Detail_Field_4__c}
+                                field-data={fieldData.Detail_Field_4__c}
                                 device-size={deviceSize}
                                 variant="show-label"
                               ></c-field>
@@ -101,30 +101,30 @@
             </div>
           </span>
           <span class="title"
-            ><template if:true={metadata.ARH__Detail_Field_2__c}>
+            ><template if:true={metadata.Detail_Field_2__c}>
               <div>
                 <c-field
-                  field-metadata={metadata.ARH__Detail_Field_2__c}
-                  field-data={fieldData.ARH__Detail_Field_2__c}
+                  field-metadata={metadata.Detail_Field_2__c}
+                  field-data={fieldData.Detail_Field_2__c}
                   device-size={deviceSize}
                 ></c-field>
               </div>
             </template>
             <template if:true={isCurrentRecord}>
-              <template if:true={metadata.ARH__Detail_Field_3__c}>
+              <template if:true={metadata.Detail_Field_3__c}>
                 <div>
                   <c-field
-                    field-metadata={metadata.ARH__Detail_Field_3__c}
-                    field-data={fieldData.ARH__Detail_Field_3__c}
+                    field-metadata={metadata.Detail_Field_3__c}
+                    field-data={fieldData.Detail_Field_3__c}
                     device-size={deviceSize}
                   ></c-field>
                 </div>
               </template>
-              <template if:true={metadata.ARH__Detail_Field_4__c}>
+              <template if:true={metadata.Detail_Field_4__c}>
                 <div>
                   <c-field
-                    field-metadata={metadata.ARH__Detail_Field_4__c}
-                    field-data={fieldData.ARH__Detail_Field_4__c}
+                    field-metadata={metadata.Detail_Field_4__c}
+                    field-data={fieldData.Detail_Field_4__c}
                     device-size={deviceSize}
                   ></c-field>
                 </div>
@@ -136,8 +136,8 @@
       <div class="small-content">
         <div>
           <c-field
-            field-metadata={metadata.ARH__Detail_Field_1__c}
-            field-data={fieldData.ARH__Detail_Field_1__c}
+            field-metadata={metadata.Detail_Field_1__c}
+            field-data={fieldData.Detail_Field_1__c}
             device-size={deviceSize}
           ></c-field>
         </div>
